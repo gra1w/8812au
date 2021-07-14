@@ -72,6 +72,10 @@ void	PHY_SetRFReg8188E(PADAPTER		Adapter,
 				u32				BitMask,
 				u32				Data);
 
+/* Rx Activity */
+void	PHY_BBConfig8188E_1T2R(PADAPTER	Adapter);
+void	PHY_BBConfig8188E_2T2R(PADAPTER	Adapter);
+void	PHY_BDConfig8188E_1T2R(PADAPTER	Adapter);
 /*
  * Initialization related function
  */
@@ -127,7 +131,37 @@ extern	void FillA2Entry8192C(PADAPTER			Adapter,
 				u8				index,
 				u8				*val);
 
-
+extern	void	PHY_SetCckTxPowerIndex(PADAPTER		Adapter,
+				u8					PowerIndex,
+				u8					Rate);
+extern	void PHY_SetOFDMTxPower(PADAPTER			Adapter,
+				u8					PowerIndex,
+				unsigned char		Rate);
+extern	void PHY_CCK8188E_SetTxPower(PADAPTER		Adapter,
+				int					InitialGain,
+				int					FinalGain,
+				int					Rate,
+				enum channel_width	Bandwidth);
+extern	void	PHY_CCK8188E_SetOFDMTxPower(PADAPTER	Adapter,
+				int					InitialGain,
+				int					FinalGain,
+				int					Rate);
+extern	void	PHY_OFDM8188E_SetTxPower(PADAPTER	Adapter,
+				int					InitialGain,
+				int					FinalGain,
+				int					Rate,
+				enum channel_width	Bandwidth);
+extern	void	PHY_OFDM_GetTxBBSwing_Original(PADAPTER	Adapter,
+				u8 *RegChnl,
+				u8 *pTxPath,
+				int *pDelta,
+				BOOLEAN			bIO
+				);
+extern	u8		PHY_GetTxBBSwing_Original(PADAPTER	Adapter,
+				u8 *RegChnl,
+				u8 *pTxPath,
+				int *pDelta,
+				BOOLEAN			bIO);
 /*
  * channel switch related funciton
  */
